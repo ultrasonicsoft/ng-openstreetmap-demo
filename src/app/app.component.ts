@@ -7,10 +7,13 @@ declare var ol: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  latitude: number = 18.5204;
+  longitude: number = 73.8567;
+
+  map: any;
 
   ngOnInit() {
-    var map = new ol.Map({
+    this.map = new ol.Map({
       target: 'map',
       layers: [
         new ol.layer.Tile({
@@ -18,9 +21,15 @@ export class AppComponent {
         })
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([37.41, 8.82]),
-        zoom: 4
+        center: ol.proj.fromLonLat([73.8567, 18.5204]),
+        zoom: 8
       })
     });
+  }
+
+  setCenter() {
+    var view = this.map.getView();
+    view.setCenter(ol.proj.fromLonLat([this.longitude, this.latitude]));
+    view.setZoom(8);
   }
 }
