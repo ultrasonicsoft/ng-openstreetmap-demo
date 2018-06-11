@@ -1,6 +1,13 @@
 <div>
-    <input type="number" [(ngModel)]="latitude" placeholder="Latitude">
-    <input type="number" [(ngModel)]="longitude" placeholder="Longitude">
+    <div>
+        <label for="latitude">Latitude:</label>
+        <input id="latitude" type="number" [(ngModel)]="latitude" placeholder="Latitude">
+    </div>
+
+    <div>
+        <label for="longitude">Longitude:</label>
+        <input id="longitude" type="number" [(ngModel)]="longitude" placeholder="Longitude">
+    </div>
     <button (click)="setCenter()">Go</button>
 </div>
 <br>
